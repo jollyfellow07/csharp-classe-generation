@@ -108,6 +108,19 @@ int etaPiuVecchia()
 
 }
 
+/**********************************************************************BONUS**************************************************************************************/
+//funzioni bonus
+int calcoloIndiceAlunno(int eta)
+{
+    int indice = 0; 
+    for (int i = 0; i < postiAlunniOccupati; i++)
+    { 
+        if(eta == etaAlunno[i])
+            indice=i;
+    }
+    return indice;
+}
+
 /*****************************************PROGRAMMA PRINCIPALE***********************************************************/
 while (true)
 {
@@ -137,6 +150,7 @@ while (true)
             break;
     }
     bool input = false;
+   //statistiche
     do
     {
         Console.WriteLine("Vuoi stampare le statistiche? [si/no]");
@@ -158,7 +172,12 @@ while (true)
                 int etaMaxima = etaPiuVecchia();
                 Console.WriteLine("L'alunno con l'età più piccola ha: " + etaMinima + " anni.");
                 Console.WriteLine("L'alunno con l'età più grande ha: " + etaMaxima + " anni.");
-                
+
+                //bonus
+           int indiceAlunnoGrande = calcoloIndiceAlunno(etaMaxima); 
+           int indiceAlunnoPiccolo = calcoloIndiceAlunno(etaMinima);
+            Console.WriteLine("L'alunno più grande si chiama: " + nomeAlunno[indiceAlunnoGrande] + " " + cognomeAlunno[indiceAlunnoGrande]);
+            Console.WriteLine("L'alunno più piccolo si chiama: " + nomeAlunno[indiceAlunnoPiccolo] + " " + cognomeAlunno[indiceAlunnoPiccolo]);
                 input = true;
                 break;
             case ("no"):
