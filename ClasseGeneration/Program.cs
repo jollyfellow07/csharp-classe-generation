@@ -106,6 +106,7 @@ int etaPiuVecchia()
     return alunnoVecchio;
 
 }
+
 /*****************************************PROGRAMMA PRINCIPALE***********************************************************/
 while (true)
 {
@@ -151,11 +152,11 @@ while (true)
                 Console.Write("eta: \t");
                 stampaArrayInt(etaAlunno);
                 double media = etaMediaClasse();
-                Console.WriteLine("\n\n l'eta media della classe è: " + media);
+                Console.WriteLine("\n\nL'eta media della classe è: " + media);
                 int etaMinima = etaPiuGiovane();
                 int etaMaxima = etaPiuVecchia();
-                Console.WriteLine(etaMinima);
-                Console.WriteLine(etaMaxima); 
+                Console.WriteLine("L'alunno con l'età più piccola ha: " + etaMinima + " anni.");
+                Console.WriteLine("L'alunno con l'età più piccola ha: " + etaMaxima + " anni."); 
                 input = true;
                 break;
             case ("no"):
