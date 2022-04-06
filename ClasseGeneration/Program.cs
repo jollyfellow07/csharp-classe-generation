@@ -88,6 +88,7 @@ int etaPiuGiovane()
         if (etaAlunno[i] < alunnoGiovane)
         {
             alunnoGiovane = etaAlunno[i];
+            
         }
     }
     return alunnoGiovane;
@@ -156,7 +157,8 @@ while (true)
                 int etaMinima = etaPiuGiovane();
                 int etaMaxima = etaPiuVecchia();
                 Console.WriteLine("L'alunno con l'età più piccola ha: " + etaMinima + " anni.");
-                Console.WriteLine("L'alunno con l'età più piccola ha: " + etaMaxima + " anni."); 
+                Console.WriteLine("L'alunno con l'età più grande ha: " + etaMaxima + " anni.");
+                
                 input = true;
                 break;
             case ("no"):
