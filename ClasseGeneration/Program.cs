@@ -61,8 +61,7 @@ void rimuoviAlunno()
     if (postiAlunniOccupati > 0)
     {
         postiAlunniOccupati--;
-        string vuoto = " ";
-        nomeAlunno[postiAlunniOccupati] = vuoto;
+        nomeAlunno[postiAlunniOccupati] = " ";
         etaAlunno[postiAlunniOccupati] = 0;
     }
     else
@@ -83,17 +82,29 @@ double etaMediaClasse()
 }
 int etaPiuGiovane()
 {
-    int alunnoGovane = etaAlunno[0];
-    for (int i = 0; i < etaAlunno[postiAlunniOccupati - 1]; i++)
+    int alunnoGiovane = etaAlunno[0];
+    for (int i = 1; i < postiAlunniOccupati; i++)
     {
-        if (etaAlunno[i] < etaAlunno[(i + 1)])
+        if (etaAlunno[i] < alunnoGiovane)
         {
-            alunnoGovane = etaAlunno[i];
+            alunnoGiovane = etaAlunno[i];
         }
-        else
-            alunnoGovane = etaAlunno[i + 1];
     }
-    return alunnoGovane;
+    return alunnoGiovane;
+}
+
+int etaPiuVecchia()
+{
+    int alunnoVecchio = etaAlunno[0];
+    for (int i = 1; i < postiAlunniOccupati; i++)
+    {
+        if (etaAlunno[i] > alunnoVecchio)
+        {
+            alunnoVecchio = etaAlunno[i];
+        }
+    }
+    return alunnoVecchio;
+
 }
 /*****************************************PROGRAMMA PRINCIPALE***********************************************************/
 while (true)
@@ -140,9 +151,11 @@ while (true)
                 Console.Write("eta: \t");
                 stampaArrayInt(etaAlunno);
                 double media = etaMediaClasse();
-
                 Console.WriteLine("\n\n l'eta media della classe è: " + media);
-
+                int etaMinima = etaPiuGiovane();
+                int etaMaxima = etaPiuVecchia();
+                Console.WriteLine(etaMinima);
+                Console.WriteLine(etaMaxima); 
                 input = true;
                 break;
             case ("no"):
